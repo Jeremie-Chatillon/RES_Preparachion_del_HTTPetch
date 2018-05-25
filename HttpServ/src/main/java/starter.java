@@ -1,0 +1,7 @@
+public class starter {
+    public static void main (String[] args){
+        System.out.println("Hello World");
+        connexion con = new connexion();
+        con.run();
+    }
+}
