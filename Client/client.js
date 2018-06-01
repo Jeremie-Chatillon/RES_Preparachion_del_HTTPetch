@@ -1,20 +1,44 @@
 const request = require('request');
 
-request({
-    uri: "http://www.heig-vd.ch",
-    method:"GET",
-    timeout: 10000,
-    followRedirect: true
-}, function(error, response, body) {
+const optionsGET = {
+    url: 'http://localhost:8000/time',
+    method: 'GET',
+};
+
+const optionsPOST = {
+    url: 'http://localhost:8000/time',
+    method: 'POST',
+    encoding: 'utf-8',
+    form: {
+        content: "00:00:00",
+    }
+};
+
+const optionsPOST2 = {
+    url: 'http://localhost:8000/time',
+    method: 'POST',
+    encoding: 'utf-8',
+    form: {
+        content: "13:00:00",
+    }
+};
+
+request(optionsGET, function(err, res, body) {
     console.log(body);
 });
 
-request({
-    uri: "http://www.heig-vd.ch",
-    method: "POST",
-    form: {
-        name: "Bob"
-    }
-}, function(error, response, body) {
+request(optionsGET, function(err, res, body) {
+    console.log(body);
+});
+
+request(optionsPOST, function(err, res, body) {
+    console.log(body);
+});
+
+request(optionsGET, function(err, res, body) {
+    console.log(body);
+});
+
+request(optionsPOST2, function(err, res, body) {
     console.log(body);
 });
